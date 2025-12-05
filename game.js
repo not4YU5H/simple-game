@@ -4,6 +4,13 @@
  */
 
 class ReactionGame {
+    // Configuration constants
+    // NOTE: CIRCLE_SIZE_PX must match the CSS .target-circle width/height (currently 60px)
+    static CONFIG = {
+        SPAWN_INTERVAL_MS: 1500,  // Time between circle spawns
+        CIRCLE_SIZE_PX: 60        // Circle diameter in pixels
+    };
+
     constructor() {
         try {
             // DOM elements
@@ -23,7 +30,7 @@ class ReactionGame {
             this.score = 0;
             this.isPlaying = false;
             this.gameInterval = null;
-            this.circleSize = 60; // pixels
+            this.circleSize = ReactionGame.CONFIG.CIRCLE_SIZE_PX
             
             // Bind methods to maintain context
             this.handleCircleClick = this.handleCircleClick.bind(this);
@@ -66,12 +73,12 @@ class ReactionGame {
             this.startBtn.textContent = 'Stop Game';
             this.spawnCircle();
             
-            // Spawn new circles at random intervals
+            // Spawn new circles at configured intervals
             this.gameInterval = setInterval(() => {
                 if (this.isPlaying) {
                     this.spawnCircle();
                 }
-            }, 1500);
+            }, ReactionGame.CONFIG.SPAWN_INTERVAL_MS);
         } catch (error) {
             this.handleError('Error starting game', error);
             this.stopGame();
