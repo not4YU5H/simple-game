@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Reaction Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>Reaction Game</h1>
+            <div class="score-container">
+                <span class="score-label">Score:</span>
+                <span id="score" class="score-value">0</span>
+            </div>
+        </div>
+        <div id="game-area" class="game-area">
+            <div id="target-circle" class="target-circle hidden"></div>
+        </div>
+        <div class="footer">
+            <button id="start-btn" class="btn">Start Game</button>
+            <button id="reset-btn" class="btn">Reset Score</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
